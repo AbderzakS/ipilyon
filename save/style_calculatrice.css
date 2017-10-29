@@ -1,0 +1,240 @@
+html, body{
+	padding:0;
+	margin:0;
+	width:100%;
+}
+body{
+    background-color:azure;
+    margin: auto;
+    text-align: center;
+}
+header, footer, aside, section, nav,  li, p, h1, h2, h3,ul,div, input, form, figure, a, footer, img{
+	position:relative;
+	margin:0 auto;
+	padding:0;
+	font-family:Georgia, Tahoma;
+	text-decoration:none;
+	font-weight:none;
+	font-size:12px;
+	color:#574b4b;
+	border:none;
+	list-style:none;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+form
+{
+    width: 500px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+}
+.cadre, .cadre_2
+{
+    border: 1px solid deepskyblue;
+}
+h1
+{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+    color: deepskyblue;
+    height: 100px;
+    line-height: 100px;    
+}
+
+.egal
+{
+    background-color: deepskyblue !important;
+    color: white !important;
+}
+.egal:hover
+{
+    background-color:azure!important;
+    color: deepskyblue !important;
+}
+.fermer
+{
+    padding: 0 10px;
+    font-size: 24px;
+    line-height: 28px;
+    color: deepskyblue;
+    border: 1px solid deepskyblue;
+}
+.fermer_triangle
+{
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-style: solid;
+    border-width: 16px 20px 16px 0;
+    border-color: transparent deepskyblue transparent transparent;
+}
+.chiffre
+{
+    background-color:whitesmoke!important;
+}
+.chiffre:hover
+{
+    background-color: azure!important;
+}
+.texte_a_saisir
+{
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    margin:0 0 2px 0;
+    padding:0 15px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    background-color:gainsboro;
+    cursor: text;
+    color: deepskyblue;
+    box-sizing: border-box;
+    border-right: 1px solid #FFFFFF;
+}
+.supp_calcul{
+    display: inline-block;
+    margin:0 0 2px 0;
+    width: 10%;
+    padding: 5px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    background-color:gainsboro;
+    cursor: pointer;
+    color: deepskyblue;
+    box-sizing: border-box;
+    text-align: center;
+    border-right: 1px solid #FFFFFF;
+}
+.supp_calcul:hover{
+    background-color:azure;
+}
+.retour_arriere{
+    display: inline-block;
+    margin:0 0 2px 0;
+    width: 15%;
+    height: 60px;
+    line-height: 60px;
+    background-color:gainsboro;
+    cursor: pointer;
+    color: darkcyan;
+    box-sizing: border-box;
+    text-align: center;
+    border-right: 1px solid #FFFFFF;
+}
+.retour_arriere:hover{
+    background-color:azure;
+}
+.resultats
+{
+    display: inline-block;
+    margin:0 0 2px 0;
+    width: 25%;
+    padding: 5px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    background-color:gainsboro;
+    cursor: text;
+    color: deepskyblue;
+    box-sizing: border-box;
+    text-align: left;
+}
+.align_right
+{
+    text-align: right !important;
+}
+.colonne_1,.colonne_2,.colonne_3,.colonne_4
+{
+    width: 25%;
+    height: 60px;
+    line-height: 60px;    
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color:gainsboro;
+    color: darkcyan;
+}
+
+.colonne_1:hover,.colonne_2:hover,.colonne_3:hover:hover,.colonne_4:hover
+{
+    background-color:azure;
+}
+
+.colonne_1{
+    border-right:1px solid #FFFFFF; 
+    border-bottom:1px solid #FFFFFF; 
+}
+.colonne_2,.colonne_3{
+    border-right:1px solid #FFFFFF; 
+    border-left:1px solid #FFFFFF; 
+    border-bottom:1px solid #FFFFFF; 
+}
+.colonne_4{
+    border-left:1px solid #FFFFFF; 
+    border-bottom:1px solid #FFFFFF; 
+}
+.btn_reset
+{
+    font-size: 18px;
+    background-color:deepskyblue;
+    border: none;
+    width: 100%;
+    color: white;
+    margin: 1px 0 0 0;
+    height: 30px;
+    cursor: pointer;
+    line-height: 30px;
+}
+.btn_reset:hover {
+    background-color:azure;
+    color: deepskyblue;
+}
+.gauche
+{
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+    text-align: center;
+    color: darkcyan;
+    padding: 10px;
+    background-color:gainsboro;
+    color: darkcyan;
+}
+.droite
+{
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+    text-align: center;
+    color: darkcyan;
+    padding: 10px;
+    background-color:gainsboro;
+    color: darkcyan;
+}
+.gauche p,.droite p
+{
+    width: 100%;
+    margin: auto;
+    color: darkcyan;
+    text-align: center;
+    font-size: 24px;
+    line-height: 60px;
+}
+h2
+{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+    color: deepskyblue;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="author" content="Remi Foyard">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprites</title>
+  <!--
+  <link media="screen" rel="stylesheet" type="text/css" href="style.css" >
+-->
+<style>
+  /*
+  facebook : -33px -19px
+  twitter : -105px -19px
+  linkedin : -177px -19px
+  */
+  .footer_sprites
+  {
+  position: relative;
+  width: 118px;
+  height: 38px;
+  box-sizing: border-box;
+  }
+  .sprites{
+  width : 36px;
+  height : 36px;
+  display: inline-block;
+  }
+  .sprite_facebook{background : url(sprites_2.jpg) no-repeat -33px -19px;}
+  .sprite_twitter{background : url(sprites_2.jpg) no-repeat -105px -19px;}
+  .sprite_linkedin{background : url(sprites_2.jpg) no-repeat -177px -19px;}
+</style>
+</head>
+<body>
+  <div class="footer_sprites">
+  <div class="sprites sprite_facebook"></div>
+  <div class="sprites sprite_twitter"></div>
+  <div class="sprites sprite_linkedin"></div>
+</div>
+</body>
+</html>

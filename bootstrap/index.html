@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="author" content="Remi Foyard">
+  <meta name="description" content="ipi">
+  <meta name="keywords" content="ipi">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Rémi Foyard</title>
+  <link rel="stylesheet" type="text/css" href="css-v3/bootstrap.css">
+  <link media="screen" rel="stylesheet" type="text/css" href="css/bootstrap_style.css" >
+  <link media="screen" rel="stylesheet" type="text/css" href="css/horloge.css" >
+  <link media="screen" rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" >
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Lobster" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="sidebar-nav-fixed affix gauche_2">
+
+          <div id="horloge">
+            <article class="clock">
+              <div class="hours-container">
+                <div class="hours"></div>
+              </div>
+              <div class="minutes-container">
+                <div class="minutes"></div>
+              </div>
+              <div class="seconds-container">
+                <div class="seconds"></div>
+              </div>
+            </article>
+          </div>
+
+          <div id="intro">
+            <h1>PORTFOLIO</h1>
+          </div>
+
+          <ul class="nav nav-pills nav-stacked p_nav">
+            <li role="presentation" class="active"><a href="index.html">Accueil</a></li>
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Projets <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li role="presentation"><a href="cv.html">CV</a></li>
+                <li role="presentation"><a href="calculatrice.html">Calculatrice</a></li>
+              </ul>
+            </li>
+            <li role="presentation"><a href="cv.html">CV</a></li>
+            <li role="presentation"><a href="contact.html">Contact</a></li>
+          </ul>
+
+          <div id="icones">
+            <ul class="p_ul"><!--
+            --><a href="http://www.facebook.com" target="_blank"><li class="p_g"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></li></a><!--
+            --><a href="http://www.instagram.com" target="_blank"><li class="p_d"><i class="fa fa-instagram fa-4x" aria-hidden="true"></i></li></a><!--
+            --></ul>
+          </div>
+<!--
+          <div id="logo">
+            <img src="img/logo_blanc.png" class="img-fluid" />
+          </div>
+-->
+    </div>
+    </div>
+      <div class="col-sm-9">
+        <ol class="breadcrumb">
+          <li class="active">Accueil</li>
+        </ol>
+        <div class="p_contenu">
+          <h2>Bienvenue sur mon portfolio !</h2>
+          <p>Vous pourrez parcourir mes réalisations ainsi que mon CV.</p>
+        </div>
+      </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js-v3/jquery.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/horloge.js"></script>
+  <script src="js-v3/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js"></script>
+  <script>
+    $(function() {
+      $('.countdown').countdown({
+          date: "June 7, 2087 15:03:26"
+      });
+      initLocalClocks();
+  });
+  </script>
+</body>
+</html>

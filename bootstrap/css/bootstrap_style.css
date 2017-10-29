@@ -1,0 +1,95 @@
+html,body{
+  background: url(../img/bg.jpg) center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+#logo img{
+  padding-top: 20px;
+}
+#intro h1{
+  color: white;
+  font-family: Libre;
+  font-size: 30px;
+}
+
+#compteur .countdown{
+  color: white;
+  font-family: Lobster;
+  letter-spacing: 3px;
+}
+
+#icones .fa{
+  color: #ffffff;
+  margin: 0 0;
+}
+.p_g{
+  margin-right: 10px;
+  display: inline;
+}
+.p_d{
+  margin-left: 10px;
+  display: inline;
+}
+.p_ul{
+  display: inline;
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+.p_nav{
+  padding: 20px 0;
+}
+.p_nav a{
+  color: white;
+}
+.p_nav a:hover{
+  color: #4fb2f3;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus {
+      color: white;
+      background-color: #1571ae;
+  }
+
+  .dropdown-toggle:active, .open .dropdown-toggle {
+      background:#FFF !important;
+      color:#4fb2f3 !important;
+  }
+  .dropdown-menu > li > a {
+    color: #4fb2f3;
+  }
+  .dropdown-menu > li > a:hover {
+    color: #4fb2f3;
+  }
+.nav-pills > li.active > a:hover {
+    background-color: white;
+    color:#3faff4;
+}
+.breadcrumb{
+  margin-top: 20px;
+    margin-left: 20px;
+}
+.p_contenu{
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  padding: 5px 20px;
+  color: black;
+}
+.gauche_2
+{
+  background-color: rgba(79, 178, 243, 0.9);
+  text-align: center;
+  top:0;
+  bottom: 0;
+  padding: 0 60px;
+}
+
+#horloge
+{
+  display: inline-block;
+  position: relative;
+  margin: 50px auto 20px auto;
+  text-align: center;
+}
