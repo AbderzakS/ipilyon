@@ -83,7 +83,7 @@ html,body{
   text-align: center;
   top:0;
   bottom: 0;
-  padding: 0 60px;
+  padding: 0 40px;
 }
 
 #horloge
@@ -92,4 +92,70 @@ html,body{
   position: relative;
   margin: 50px auto 20px auto;
   text-align: center;
+}
+
+.navbar-default{
+  background-color: rgba(79, 178, 243, 1);
+  border: none;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+    border-radius: 4px;
+    background-color: #4fb2f3;
+    margin-right: 2px ;
+    margin-bottom: 2px ;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #4fb2f3;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    margin-right: 2px ;
+    margin-bottom: 2px ;
+}
+.navbar-default .navbar-brand{
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.navbar-default .navbar-brand:hover{
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.navbar-default .navbar-toggle
+{
+  border-color:#FFFFFF;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus
+{
+  border-color:#FFFFFF;
+  background-color: #FFFFFF;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+  border: none;
+}
+/*
+@media all and (max-width: 1200px)
+{
+  .gauche_2{
+    position: relative;
+  }
+
+}
+*/
+@media all and (max-width: 768px)
+{
+  .p_g{
+    margin: 0;
+  }
+  .p_d{
+    margin: 0;
+  }
+}
+@media all and (max-width: 991px)
+{
+  .gauche_2
+  {
+    padding: 0 10px;
+  }
 }

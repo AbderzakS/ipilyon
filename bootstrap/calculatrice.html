@@ -11,59 +11,10 @@
   <link rel="stylesheet" type="text/css" href="css-v3/bootstrap.css">
   <link media="screen" rel="stylesheet" type="text/css" href="css/bootstrap_style.css" >
   <link media="screen" rel="stylesheet" type="text/css" href="css/horloge.css" >
+  <link media="screen" rel="stylesheet" type="text/css" href="css/style.css" >
   <link media="screen" rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" >
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Lobster" rel="stylesheet">
-  <script>
-        function appel(){
-          var login = document.getElementById("login").value;
-          var passe = document.getElementById("passe").value;
-          var name = document.getElementById("name").value;
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function(data) {
-            console.log(data);
-            if (data.target.readyState == 4 && data.target.status == 200) {
-              var datas=data.target.response;
-              var obj = JSON.parse(datas);
-              document.getElementById("resultat").innerHTML = "Utilisateur : "+obj.utilisateur+" <input id='name' type='text' value='"+obj.todoListes[0].name+"'/><input id='name' type='text' value='"+obj.todoListes[0].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[0].elements[1]+"'/><input id='name' type='text' value='"+obj.todoListes[1].name+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[1]+"'/>";
-              //$("#resultat").append("OK !"+obj.utilisateur);
-
-            }
-            else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
-          };
-          /*
-          xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
-          */
-          xhttp.open("GET", "http://92.222.69.104:8080/todo/listes", true);
-          xhttp.setRequestHeader("login","foyard");
-          xhttp.setRequestHeader("password","remi");
-          xhttp.send();
-
-        }
-        function modif(){
-          var login = document.getElementById("login").value;
-          var passe = document.getElementById("passe").value;
-          var name = document.getElementById("name").value;
-          console.log(name);
-          var elements = document.getElementById("elements").value;
-          console.log(elements);
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function(data) {
-            console.log(data);
-            if (data.target.readyState == 4 && data.target.status == 200) {          $("#resultat").append(data.target.response);
-            }
-            else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
-          };
-          /*
-          xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
-          */
-          xhttp.open("GET", "http://92.222.69.104:8080/todo/listes", true);
-          xhttp.setRequestHeader("login",login);
-          xhttp.setRequestHeader("password",passe);
-          xhttp.send();
-
-        }
-  </script>
 </head>
 <body>
 
@@ -141,23 +92,47 @@
     </div>
       <div class="col-sm-9">
         <ol class="breadcrumb">
-          <li class="active">Accueil</li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="#">Projets</a></li>
+          <li class="active">Calculatrice</li>
         </ol>
         <div class="p_contenu">
-          <h2>Bienvenue sur mon portfolio !</h2>
-          <p>Vous pourrez parcourir mes réalisations ainsi que mon CV.</p>
-          <input id="login" type="text" value=""/>
-          <input id="passe" type="text" value=""/>
-          <button onclick="appel();">Afficher Listes</button>
-          <p id="resultat"></p>
-          <input id="name" type="text" value=""/>
-          <select name="elements">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
-          <button onclick="modif();">Modifier Listes</button>
+
+          <article>
+      <form class="formCalc" name="formCalc" action="index.html" method="post" onsubmit="return calculatrice()">
+      <hr class="hr_1">
+          <h2>CALCULATRICE</h2>
+        <hr class="hr_2"><!--
+          --><div class="cadre"><input class="texte_a_saisir" readonly type="text" id="nombre" value="" /><!--
+  --><div class="retour_arriere" id="retour_arriere" onclick="retourArriere()"><div class="fermer_triangle"></div><div class='fermer'>x</div></div><!--
+          --><p class="supp_calcul" id="supp_calcul" onclick="suppCalcul()"> CE </p><!--
+          --><p class="resultats" id="resultat"> = </p><!--
+          --><input class="egal" type="button" onclick="calculatrice('egal')" value="=" /><!--
+          --><input class="colonne_1 chiffre" type="button" onclick="miseajourtemp('7')" value="7" /><!--
+          --><input class="colonne_2 chiffre" type="button" onclick="miseajourtemp('8')" value="8" /><!--
+          --><input class="colonne_3 chiffre" type="button" onclick="miseajourtemp('9')" value="9" /><!--
+          --><input class="colonne_4"  type="button" onclick="calculatrice('addition')" value="+" /><!--
+          --><input class="colonne_1 chiffre" type="button" onclick="miseajourtemp('4')" value="4" /><!--
+          --><input class="colonne_2 chiffre" type="button" onclick="miseajourtemp('5')" value="5" /><!--
+          --><input class="colonne_3 chiffre" type="button" onclick="miseajourtemp('6')" value="6" /><!--
+          --><input class="colonne_4" type="button" onclick="calculatrice('soustraction')" value="-" /><!--
+          --><input class="colonne_1 chiffre" type="button" onclick="miseajourtemp('1')" value="1" /><!--
+          --><input class="colonne_2 chiffre" type="button" onclick="miseajourtemp('2')" value="2" /><!--
+          --><input class="colonne_3 chiffre" type="button" onclick="miseajourtemp('3')" value="3" /><!--
+          --><input class="colonne_4" type="button" onclick="calculatrice('multiplication')" value="x" /><!--
+          --><input class="colonne_1 chiffre" type="button" onclick="miseajourtemp('.')" value="." /><!--
+          --><input class="colonne_2 chiffre width_50" type="button" onclick="miseajourtemp('0')" value="0" /><!--
+          <input class="colonne_3 chiffre" type="button" onclick="parenthese()" value="( )" />--><!--
+          --><input class="colonne_4" type="button" onclick="calculatrice('division')" value="/" /><!--
+  --></div>
+    <hr class="hr_1">
+      <h2>HISTORIQUE</h2>
+    <hr class="hr_2">
+    <div class="histo"><div class="cadre_2"><div class="gauche"><h3>Calculs</h3><p id="historique_calcul"></p></div><!--
+  --><div class="droite"><h3>Résultats</h3><p id="historique"></p></div></div><!--
+          --><input class="btn_reset" type="button" name="reset" onclick="resetAll()"  value="TOUT SUPPRIMER" /></div><!--
+          --></form>
+          </article>
         </div>
       </div>
   </div>
@@ -169,6 +144,7 @@
   <script src="js/popper.min.js"></script>
   <script src="js/horloge.js"></script>
   <script src="js-v3/bootstrap.js"></script>
+  <script src="../javascript.js" defer></script>
 <script type="text/javascript" src="js/jquery.countdown.js"></script>
   <script>
     $(function() {
