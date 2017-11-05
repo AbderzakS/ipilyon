@@ -41,7 +41,7 @@
           <a href="https://twitter.com/?lang=fr" target="_blank"><div class="sprites sprite_twitter"></div></a>
           <a href="https://fr.linkedin.com" target="_blank"><div class="sprites sprite_linkedin"></div></a>
         </div>
-            <h2><a href="index.php">RETOUR AUX PROJETS</a></h2>
+            <h2><a href="index.php">ACCUEIL</a> - <a href="bootstrap/index.html">PROJET BOOTSTRAP</a></h2>
         	<hr class="hr_2">
         </article>
     	<p class="accroche">Après un BAC+2 en Informatique et un bon en niveau en création de sites web je souhaite en apprendre plus et me reconstruire dans le monde du digital.</p>

@@ -134,6 +134,19 @@ html,body{
 .navbar-default .navbar-collapse, .navbar-default .navbar-form{
   border: none;
 }
+
+/*  CONTACT   */
+.red{
+    color:red;
+    }
+.form-area
+{
+    background-color: #FAFAFA;
+	padding: 40px 40px 40px;
+	margin: 20px 0px 20px;
+	border: 1px solid #4fb2f3;
+	}
+
 /*
 @media all and (max-width: 1200px)
 {

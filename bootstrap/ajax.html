@@ -14,6 +14,73 @@
   <link media="screen" rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" >
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Lobster" rel="stylesheet">
+  <script>
+        function create(){{
+          var login = document.getElementById("login").value;
+          var passe = document.getElementById("passe").value;
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function(data) {
+            console.log(data);
+            if (data.target.readyState == 4 && data.target.status == 200) {
+              //$("#resultat").append(data.target.response);
+              $("#resultat").append("Login : "+login+" et mot de passe créés");
+
+            }
+            else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
+          };
+          xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
+          xhttp.send();
+        }
+        function appel(){
+          var login = document.getElementById("login").value;
+          var passe = document.getElementById("passe").value;
+          var name = document.getElementById("name").value;
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function(data) {
+            console.log(data);
+            if (data.target.readyState == 4 && data.target.status == 200) {
+              var datas=data.target.response;
+              var obj = JSON.parse(datas);
+              document.getElementById("resultat").innerHTML = "Utilisateur : "+obj.utilisateur+" <input id='name' type='text' value='"+obj.todoListes[0].name+"'/><input id='name' type='text' value='"+obj.todoListes[0].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[0].elements[1]+"'/><input id='name' type='text' value='"+obj.todoListes[1].name+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[1]+"'/>";
+              //$("#resultat").append("OK !"+obj.utilisateur);
+
+            }
+            else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
+          };
+          /*
+          xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
+          */
+          xhttp.open("GET", "http://92.222.69.104:8080/todo/listes", true);
+          xhttp.setRequestHeader("login","foyard");
+          xhttp.setRequestHeader("password","remi");
+          xhttp.send();
+
+        }
+        function modif(){
+          var login = document.getElementById("login").value;
+          var passe = document.getElementById("passe").value;
+          var name = document.getElementById("name").value;
+          console.log(name);
+          var elements = document.getElementById("elements").value;
+          console.log(elements);
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function(data) {
+            console.log(data);
+            if (data.target.readyState == 4 && data.target.status == 200) {
+              $("#resultat").append(data.target.response);
+            }
+            else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
+          };
+          /*
+          xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
+          */
+          xhttp.open("POST", "http://92.222.69.104:8080/todo/listes", true);
+          xhttp.setRequestHeader("content-type","application/json; charset=utf-8");
+          xhttp.send('[{"nom":"TOTO1","prenom":"TATA"},{"nom":"TOTO2","prenom":"TATA"}]');
+
+
+        }
+  </script>
 </head>
 <body>
 
@@ -107,7 +174,12 @@
         </ol>
         <div class="p_contenu">
           <h2>Bienvenue sur mon portfolio !</h2>
-          <p>Vous pourrez parcourir mes réalisations ainsi que mon CV.</p>
+          <p>TP Listes</p>
+          <input id="login" type="text" value=""/>
+          <input id="passe" type="text" value=""/>
+          <button onclick="appel();">Afficher Listes</button>
+          <p id="resultat"></p>
+          <button onclick="modif();">Modifier Listes</button>
         </div>
       </div>
   </div>

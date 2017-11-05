@@ -103,11 +103,32 @@
     </div>
       <div class="col-sm-9">
         <ol class="breadcrumb">
-          <li class="active">Accueil</li>
+          <li class="active">Contact</li>
         </ol>
         <div class="p_contenu">
-          <h2>Bienvenue sur mon portfolio !</h2>
-          <p>Vous pourrez parcourir mes réalisations ainsi que mon CV.</p>
+          <h2>Contactez-moi ci-dessous</h2>
+          <div class="form-area">
+            <form role="form">
+        				<div class="form-group">
+    						<input type="text" class="form-control" id="nom" name="nom" placeholder="Nom Prénom" required>
+    					</div>
+    					<div class="form-group">
+    						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+    					</div>
+    					<div class="form-group">
+    						<input type="text" class="form-control" id="telephone" name="telephone" placeholder="Téléphone" required>
+    					</div>
+    					<div class="form-group">
+    						<input type="text" class="form-control" id="sujet" name="sujet" placeholder="Sujet" required>
+    					</div>
+              <div class="form-group">
+                <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="499" rows="7"></textarea>
+                <span class="help-block"><p id="limiteCaracteres" class="help-block ">Vous avez atteint la limite de caractères</p></span>
+              </div>
+
+            <button type="button" id="btnSubmit" name="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
         </div>
       </div>
   </div>
@@ -126,6 +147,14 @@
           date: "June 7, 2087 15:03:26"
       });
       initLocalClocks();
+
+      $('#limiteCaracteres').text('500 caractères autorisés');
+      $('#message').keydown(function (event) {
+          if($(this).val().length==499 ){
+            $('#limiteCaracteres').text('Vous avez atteint 500 caractères');
+          }
+          else $('#limiteCaracteres').text('500 caractères autorisés');
+      });
   });
   </script>
 </body>
