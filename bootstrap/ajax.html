@@ -17,10 +17,9 @@
   <style>
   </style>
   <script>
-  /*
-        function create(){{
-          var login = document.getElementById("login").value;
-          var passe = document.getElementById("passe").value;
+        function create_compte(){
+          var login = document.getElementById("login_create").value;
+          var passe = document.getElementById("passe_create").value;
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function(data) {
             console.log(data);
@@ -34,8 +33,7 @@
           xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
           xhttp.send();
         }
-        */
-        var global = "";
+
         function appel(){
           var login = document.getElementById("login").value;
           var passe = document.getElementById("passe").value;
@@ -51,9 +49,9 @@
               //document.getElementById("resultat").innerHTML +=datas;
               global = datas;
               $.each(obj.todoListes,function(obj1,todo){
-                document.getElementById("resultat").innerHTML += "<td><input id='name_"+i+"' type='text' value='"+todo.name+"'/></td>";
+                document.getElementById("resultat").innerHTML += "<td><input class='input_titre_3' id='name_"+i+"' type='text' value='"+todo.name+"'/></td>";
                 $.each(todo.elements,function(obj2,element){
-                  document.getElementById("resultat").innerHTML += "<td><input id='elements_"+i+"_"+j+"' type='text' value='"+element+"'/></td>";
+                  document.getElementById("resultat").innerHTML += "<td><input class='input_titre_4' id='elements_"+i+"_"+j+"' type='text' value='"+element+"'/></td>";
                   j++;
                 });
                 i++;
@@ -71,8 +69,8 @@
           xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
           */
           xhttp.open("GET", "http://92.222.69.104:8080/todo/listes", true);
-          xhttp.setRequestHeader("login","foyard");
-          xhttp.setRequestHeader("password","remi");
+          xhttp.setRequestHeader("login",login);
+          xhttp.setRequestHeader("password",passe);
           xhttp.send();
 
         }
@@ -82,7 +80,7 @@
         function modif(){
           var login = document.getElementById("login").value;
           var passe = document.getElementById("passe").value;
-          var char_debut = '{"utilisateur":"foyard","password":"remi","todoListes":[';
+          var char_debut = '{"utilisateur":"'+login+'","password":"'+passe+'","todoListes":[';
           var char_fin = ']}]}';
           //var name = document.getElementById("name").value;
           var cle;
@@ -95,8 +93,8 @@
           for(i=0;i<long;i++)
           {
             cle = window.document.forms[0].elements[i].id;
+            console.log("salut "+cle);
             char_contenu = document.getElementById(cle).value;
-            console.log(cle);
             console.log(cle.substring(0,1));
             premiere_lettre = cle.substring(0,1);
             deuxieme_chiffre = cle.substring(11,12);
@@ -147,13 +145,15 @@
           var taille = long/3;
           var i = taille+1;
           console.log(taille);
-          document.getElementById("resultat").innerHTML += "<td><input id='name_"+i+"' type='text' value=''/></td>";
-          document.getElementById("resultat").innerHTML += "<td><input id='elements_"+i+"_1' type='text' value=''/></td>";
-          document.getElementById("resultat").innerHTML += "<td><input id='elements_"+i+"_2' type='text' value=''/></td>";
+          document.getElementById("resultat").innerHTML += "<td><input class='input_titre_3' id='name_"+i+"' type='text' value=''/></td>";
+          document.getElementById("resultat").innerHTML += "<td><input class='input_titre_3' id='elements_"+i+"_1' type='text' value=''/></td>";
+          document.getElementById("resultat").innerHTML += "<td><input class='input_titre_3' id='elements_"+i+"_2' type='text' value=''/></td>";
 
         }
-        
+
         function listeDefault(){
+          var login = document.getElementById("login").value;
+          var passe = document.getElementById("passe").value;
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function(data) {
             console.log(data);
@@ -165,7 +165,7 @@
 
           xhttp.open("POST", "http://92.222.69.104:8080/todo/listes", true);
           xhttp.setRequestHeader("content-type","application/json; charset=utf-8");
-          xhttp.send('{"utilisateur":"foyard","password":"remi","todoListes":[{"name":"Devoir IPI","elements":["Apprendre Ajax","Etudier Javascript"]},{"name":"Perso","elements":["Se lever","Se doucher"]}]}');
+          xhttp.send('{"utilisateur":"'+login+'","password":"'+passe+'","todoListes":[{"name":"Devoir IPI","elements":["Apprendre Ajax","Etudier Javascript"]},{"name":"Perso","elements":["Se lever","Se doucher"]}]}');
 
         }
   </script>
@@ -265,13 +265,16 @@
         <div class="p_contenu">
           <h2>AJAX</h2>
           <p>TP Listes</p>
-          <input placeholder="LOGIN" id="login" type="text" value=""/>
-          <input placeholder="PASSWORD" id="passe" type="text" value=""/>
-          <button onclick="appel();">Afficher Listes</button>
-          <form id="formu"><input type="text" value="Titre" readonly /><input type="text" value="Element 1" readonly /><input type="text" value="Element 2" readonly /><p id="resultat"></p></form>
-          <button onclick="ajout();">Ajout Liste</button>
-          <button onclick="modif();">Modifier Listes</button>
-          <button onclick="listeDefault();">Réinitialiser Listes</button>
+          <input class="input_titre_0" placeholder="CRER LOGIN" id="login_create" type="text" value=""/>
+          <input class="input_titre_0" placeholder="CREER PASSWORD" id="passe_create" type="password" value=""/>
+          <button onclick="create_compte();">CREER COMPTE</button>
+          <input class="input_titre_2" placeholder="LOGIN : FOYARD" id="login" type="text" value=""/>
+          <input class="input_titre_2" placeholder="PASSWORD : MONPRENOM" id="passe" type="password" value=""/>
+          <button onclick="appel();">AFFICHER LISTES</button>
+          <input class="input_titre" type="text" name="un" value="Titre" readonly /><input class="input_titre" type="text" name="2" value="Element 1" readonly /><input class="input_titre" type="text" name="3" value="Element 2" readonly /><form id="formu"><p id="resultat"></p></form>
+          <button onclick="ajout();">AJOUTER LISTE</button>
+          <button onclick="modif();">VALIDER LISTES</button>
+          <button onclick="listeDefault();">RESET LISTES</button>
         </div>
       </div>
   </div>
