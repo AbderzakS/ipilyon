@@ -1,4 +1,9 @@
-html,body{
+
+  input{
+    text-align: center;
+    width: 200px;
+    margin: 4px;
+  }html,body{
   background: url(../img/bg.jpg) center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -156,6 +161,11 @@ html,body{
 
 }
 */
+  input{
+    text-align: center;
+    width: 32%;
+    margin: 4px;
+  }
 @media all and (max-width: 768px)
 {
   .p_g{
@@ -164,6 +174,11 @@ html,body{
   .p_d{
     margin: 0;
   }
+    input{
+      text-align: center;
+      width: 33%;
+      margin: 0px;
+    }
 }
 @media all and (max-width: 991px)
 {
@@ -171,4 +186,9 @@ html,body{
   {
     padding: 0 10px;
   }
+    input{
+      text-align: center;
+      width: 30%;
+      margin: 2px;
+    }
 }

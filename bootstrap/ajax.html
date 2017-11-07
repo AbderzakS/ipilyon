@@ -14,7 +14,10 @@
   <link media="screen" rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" >
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Lobster" rel="stylesheet">
+  <style>
+  </style>
   <script>
+  /*
         function create(){{
           var login = document.getElementById("login").value;
           var passe = document.getElementById("passe").value;
@@ -31,21 +34,38 @@
           xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
           xhttp.send();
         }
+        */
+        var global = "";
         function appel(){
           var login = document.getElementById("login").value;
           var passe = document.getElementById("passe").value;
-          var name = document.getElementById("name").value;
+          document.getElementById("resultat").innerHTML ="";
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function(data) {
             console.log(data);
             if (data.target.readyState == 4 && data.target.status == 200) {
               var datas=data.target.response;
               var obj = JSON.parse(datas);
-              document.getElementById("resultat").innerHTML = "Utilisateur : "+obj.utilisateur+" <input id='name' type='text' value='"+obj.todoListes[0].name+"'/><input id='name' type='text' value='"+obj.todoListes[0].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[0].elements[1]+"'/><input id='name' type='text' value='"+obj.todoListes[1].name+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[1]+"'/>";
-              //$("#resultat").append("OK !"+obj.utilisateur);
+              var i=1;
+              var j=1;
+              //document.getElementById("resultat").innerHTML +=datas;
+              global = datas;
+              $.each(obj.todoListes,function(obj1,todo){
+                document.getElementById("resultat").innerHTML += "<td><input id='name_"+i+"' type='text' value='"+todo.name+"'/></td>";
+                $.each(todo.elements,function(obj2,element){
+                  document.getElementById("resultat").innerHTML += "<td><input id='elements_"+i+"_"+j+"' type='text' value='"+element+"'/></td>";
+                  j++;
+                });
+                i++;
+                j=1;
+              });
+              /*
+              document.getElementById("resultat").innerHTML = "Utilisateur : "+obj.utilisateur+" <input id='name' type='text' value='"+obj.todoListes[0].name+"'/><;input id='name' type='text' value='"+obj.todoListes[0].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[0].elements[1]+"'/><input id='name' type='text' value='"+obj.todoListes[1].name+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[0]+"'/><input id='name' type='text' value='"+obj.todoListes[1].elements[1]+"'/>";
+              */
+              /*$("#resultat").append("OK !"+obj.utilisateur);*/
 
             }
-            else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
+            else if(data.target.readyState == 4) document.getElementById("resultat").innerHTML ="Erreur !";
           };
           /*
           xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
@@ -56,28 +76,96 @@
           xhttp.send();
 
         }
+        /*
+        {"utilisateur":"foyard","password":"remi","todoListes":[{"name":"Devoir IPI","elements":["Apprendre Ajax","Etudier Javascript"]},{"name":"Perso","elements":["Se lever","Se doucher"]}]}
+        */
         function modif(){
           var login = document.getElementById("login").value;
           var passe = document.getElementById("passe").value;
-          var name = document.getElementById("name").value;
-          console.log(name);
-          var elements = document.getElementById("elements").value;
-          console.log(elements);
+          var char_debut = '{"utilisateur":"foyard","password":"remi","todoListes":[';
+          var char_fin = ']}]}';
+          //var name = document.getElementById("name").value;
+          var cle;
+          var premiere_lettre;
+          var deuxieme_chiffre;
+          var char_suite='';
+          var char_contenu;
+          var char_json;
+          var long = window.document.forms[0].elements.length;
+          for(i=0;i<long;i++)
+          {
+            cle = window.document.forms[0].elements[i].id;
+            char_contenu = document.getElementById(cle).value;
+            console.log(cle);
+            console.log(cle.substring(0,1));
+            premiere_lettre = cle.substring(0,1);
+            deuxieme_chiffre = cle.substring(11,12);
+            if(premiere_lettre=='n' && char_suite==''){
+              char_suite+='{"name":"'+char_contenu+'"';
+              console.log(char_suite);
+            }
+            else if(premiere_lettre=='n' && char_suite!=''){
+              char_suite+=']},{"name":"'+char_contenu+'"';
+              console.log(char_suite);
+            }
+            else if(premiere_lettre=='e' && deuxieme_chiffre==1){
+              char_suite+=',"elements":["'+char_contenu+'"';
+              console.log(char_suite);
+            }
+            else if(premiere_lettre=='e' && deuxieme_chiffre>1){
+              char_suite+=',"'+char_contenu+'"';
+              console.log(char_suite);
+            }
+            else{
+              char_suite+='';
+            }
+            console.log(char_contenu);
+          }
+          char_json = char_debut+char_suite+char_fin;
+          console.log(char_json);
+          //var elements = document.getElementById("elements").value;
+          //console.log(elements);
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function(data) {
             console.log(data);
             if (data.target.readyState == 4 && data.target.status == 200) {
-              $("#resultat").append(data.target.response);
+              //$("#resultat").append(data.target.response);
+              document.getElementById("resultat").innerHTML +="<br>"+data.target.response;
+              appel();
             }
-            else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
+            else if(data.target.readyState == 4) document.getElementById("resultat").innerHTML +="Erreur !";
           };
-          /*
-          xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
-          */
+
           xhttp.open("POST", "http://92.222.69.104:8080/todo/listes", true);
           xhttp.setRequestHeader("content-type","application/json; charset=utf-8");
-          xhttp.send('[{"nom":"TOTO1","prenom":"TATA"},{"nom":"TOTO2","prenom":"TATA"}]');
+          xhttp.send(char_json);
 
+        }
+
+        function ajout(){
+          var long = window.document.forms[0].elements.length;
+          var taille = long/3;
+          var i = taille+1;
+          console.log(taille);
+          document.getElementById("resultat").innerHTML += "<td><input id='name_"+i+"' type='text' value=''/></td>";
+          document.getElementById("resultat").innerHTML += "<td><input id='elements_"+i+"_1' type='text' value=''/></td>";
+          document.getElementById("resultat").innerHTML += "<td><input id='elements_"+i+"_2' type='text' value=''/></td>";
+
+        }
+        
+        function listeDefault(){
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function(data) {
+            console.log(data);
+            if (data.target.readyState == 4 && data.target.status == 200) {
+              appel();
+            }
+            else if(data.target.readyState == 4) document.getElementById("resultat").innerHTML ="Erreur !";
+          };
+
+          xhttp.open("POST", "http://92.222.69.104:8080/todo/listes", true);
+          xhttp.setRequestHeader("content-type","application/json; charset=utf-8");
+          xhttp.send('{"utilisateur":"foyard","password":"remi","todoListes":[{"name":"Devoir IPI","elements":["Apprendre Ajax","Etudier Javascript"]},{"name":"Perso","elements":["Se lever","Se doucher"]}]}');
 
         }
   </script>
@@ -95,9 +183,10 @@
   		<div class="collapse navbar-collapse" id="menu1" >
   			<ul class="nav navbar-nav">
   				<li><a href="index.html" >Accueil</a></li>
-  				<li><a href="cv.html" >CV</a></li>
-  				<li><a href="calculatrice.html" >Calculatrice</a></li>
-  				<li><a href="calculatrice.html" >Contact</a></li>
+  				<li><a href="../cv.php" >CV</a></li>
+  				<li><a href="../calculatrice.php" >Calculatrice</a></li>
+  				<li><a href="ajax.html" >AJAX</a></li>
+  				<li><a href="contact.html" >Contact</a></li>
           <li class="p_g"><a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a></li>
           <li class="p_d"><a href="http://www.instagram.com" target="_blank"><i class="fa fa-instagram fa-4x" aria-hidden="true"></i></a></li>
   			</ul>
@@ -170,16 +259,19 @@
     </div>
       <div class="col-sm-9">
         <ol class="breadcrumb">
-          <li class="active">Accueil</li>
+          <li class="active">PROJETS IPI</li>
+          <li class="active">AJAX</li>
         </ol>
         <div class="p_contenu">
-          <h2>Bienvenue sur mon portfolio !</h2>
+          <h2>AJAX</h2>
           <p>TP Listes</p>
-          <input id="login" type="text" value=""/>
-          <input id="passe" type="text" value=""/>
+          <input placeholder="LOGIN" id="login" type="text" value=""/>
+          <input placeholder="PASSWORD" id="passe" type="text" value=""/>
           <button onclick="appel();">Afficher Listes</button>
-          <p id="resultat"></p>
+          <form id="formu"><input type="text" value="Titre" readonly /><input type="text" value="Element 1" readonly /><input type="text" value="Element 2" readonly /><p id="resultat"></p></form>
+          <button onclick="ajout();">Ajout Liste</button>
           <button onclick="modif();">Modifier Listes</button>
+          <button onclick="listeDefault();">Réinitialiser Listes</button>
         </div>
       </div>
   </div>
