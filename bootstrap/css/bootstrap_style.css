@@ -1,9 +1,4 @@
-
-  input{
-    text-align: center;
-    width: 200px;
-    margin: 4px;
-  }html,body{
+html,body{
   background: url(../img/bg.jpg) center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -161,6 +156,10 @@
 
 }
 */
+#avatar img{
+  width: 8em;
+  border-radius:50%
+}
 h2{
   color:#4fb2f3;
   font-size: 22px;

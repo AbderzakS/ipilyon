@@ -1,11 +1,11 @@
 .clock {
-  border-radius: 5%;
-  background: #fff url(../img/ios_clock.svg) no-repeat center;
-  background-size: 88%;
-  height: 12em;
+  border-radius: 50%;
+  background: #fff url(../../avatar_remi_1.jpg) no-repeat center; /*  url(../img/ios_clock.svg)  */
+  background-size: cover; /* background-size: 88%; */
+  height: 10em;
   padding-bottom: 31%;
   position: relative;
-  width: 12em;
+  width: 10em;
 }
 
 .clock.simple:after {
