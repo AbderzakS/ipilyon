@@ -72,7 +72,7 @@
                 <dd><span class="gras"><a href="calculatrice.php">Javascript, HTML, CSS, RESPONSIVE WEB DESIGN</a></span></dd>
             	<hr class="hr_2">
                 <dt><a href="bootstrap/index.html">Bootstrap</a></dt>
-                <dd><span class="gras"><a href="bootstrap/index.html">Bootstrap, Javascript, HTML, CSS</a></span></dd>
+                <dd><span class="gras"><a href="bootstrap/index.html">Bootstrap, Ajax, Javascript, HTML, CSS</a></span></dd>
             	<!--
               <hr class="hr_2">
                 <dt><a href="test.php">Page de Test</a></dt>

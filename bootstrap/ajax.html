@@ -30,7 +30,7 @@
             }
             else if(data.target.readyState == 4) $("#resultat").append("Erreur !");
           };
-          xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
+          xhttp.open("GET", "http://37.59.100.204:8080/todo/create/"+login+"/"+passe, true);
           xhttp.send();
         }
 
@@ -67,8 +67,9 @@
           };
           /*
           xhttp.open("GET", "http://92.222.69.104:8080/todo/create/"+login+"/"+passe, true);
-          */
           xhttp.open("GET", "http://92.222.69.104:8080/todo/listes", true);
+          */
+          xhttp.open("GET", "http://37.59.100.204:8080/todo/listes", true);
           xhttp.setRequestHeader("login",login);
           xhttp.setRequestHeader("password",passe);
           xhttp.send();
@@ -134,7 +135,7 @@
             else if(data.target.readyState == 4) document.getElementById("resultat").innerHTML +="Erreur !";
           };
 
-          xhttp.open("POST", "http://92.222.69.104:8080/todo/listes", true);
+          xhttp.open("POST", "http://37.59.100.204:8080/todo/listes", true);
           xhttp.setRequestHeader("content-type","application/json; charset=utf-8");
           xhttp.send(char_json);
 
@@ -163,7 +164,7 @@
             else if(data.target.readyState == 4) document.getElementById("resultat").innerHTML ="Erreur !";
           };
 
-          xhttp.open("POST", "http://92.222.69.104:8080/todo/listes", true);
+          xhttp.open("POST", "http://37.59.100.204:8080/todo/listes", true);
           xhttp.setRequestHeader("content-type","application/json; charset=utf-8");
           xhttp.send('{"utilisateur":"'+login+'","password":"'+passe+'","todoListes":[{"name":"Devoir IPI","elements":["Apprendre Ajax","Etudier Javascript"]},{"name":"Perso","elements":["Se lever","Se doucher"]}]}');
 
